@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Xdy制作</title>
 	<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" type="text/css" href="https://daneden.github.io/animate.css/animate.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="https://daneden.github.io/animate.css/animate.min.css" /> -->
 <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
 <link rel='stylesheet' id='contact-form-7-css'  href='css/styles.css' type='text/css' media='all' />
 <link rel='stylesheet' id='dslc-main-css-css'  href='css/main.min.css' type='text/css' media='all' />
@@ -431,10 +431,27 @@ font-size: 38px;
 			
 			
 		
-					<div class="video-parallax">
+			<div class="video-parallax">
 	            <div class="overlay"></div>
 	            <div class="col-md-12 playvid">
-	                <a class="fa fa-play-circle popup-vimeo wow zoomInDown" data-wow-duration="1s" data-wow-delay="0.9s" src="video/0.mp4"></a>
+						<video class="fa fa-play-circle popup-vimeo wow zoomInDown" id="myvideo" width="250" height="350" controls="controls" > 
+							你的浏览器不支持HTML5播放此视频 
+					<span style="white-space:pre">    </span><!-- 支持播放的文件格式 --> 
+					<source src="video/0.mp4" type='video/mp4' />  
+			 </video>
+
+			 <video class="fa fa-play-circle popup-vimeo wow zoomInDown" id="myvideo" width="250" height="350" controls="controls" > 
+								你的浏览器不支持HTML5播放此视频 
+						<span style="white-space:pre">    </span><!-- 支持播放的文件格式 --> 
+						<source src="video/1.mp4" type='video/mp4' />  
+				</video>
+
+				<video class="fa fa-play-circle popup-vimeo wow zoomInDown" id="myvideo" width="250" height="350" controls="controls" > 
+					你的浏览器不支持HTML5播放此视频 
+				<span style="white-space:pre">    </span><!-- 支持播放的文件格式 --> 
+				<source src="video/3.mp4" type='video/mp4' />  
+				</video>
+
 	            </div>
 	        </div>
 		
@@ -504,11 +521,7 @@ font-size: 38px;
 												</div>
 	
 		
- 
-		
-	
-			
-			
+
 		</div>
 		 </div>
 		 <div class="dslc-modules-area dslc-col dslc-12-col dslc-last-col" data-size="12"> 		
@@ -604,5 +617,33 @@ var PlutonWidth = {"menulogin":"50"};
 <script type='text/javascript' src='js/comment-reply.min.js'></script>
 <script type='text/javascript' src='js/wp-embed.min.js'></script>
 <script type='text/javascript' src='js/jquery.nav.js'></script>
+
+
+
+<script language="javascript">   
+	$(document).ready(function(){ 
+		 video.play();   
+	}); 
+	   
+	var vList = ['001.mp4', 'video//1.mp4', 'video//2.mp4', 'video//3.mp4']; // 初始化播放列表   
+	var vLen = vList.length;  
+	var curr = 0;  
+	var video = document.getElementById("myvideo");   
+	video.addEventListener('ended', function(){ 
+		play(); 
+	});   
+		
+	function play() {   
+		video.src = vList[curr];   
+		video.load();    
+		video.play();   
+		curr++;   
+		if(curr >= vLen){   
+			curr = 0; //重新循环播放 
+		}   
+		 
+	}   
+</script>   
+
 </body>
 </html>
